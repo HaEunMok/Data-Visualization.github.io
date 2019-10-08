@@ -6,17 +6,17 @@
       google.charts.setOnLoadCallback(drawLineColors);
       function drawLineColors() {
         var data = google.visualization.arrayToDataTable([
-          ['Year', 'Elder over 65', {type: 'string', role: 'annotation'}, 'Elder living alone'],
-          ['2015',  65,   65,                                 12],
-          ['2016',  67,   67,                                 12],
-          ['2017',  70,    70,                                 13],
-          ['2018',  73,   73,                                 14]
+          ['Year', 'CompanyA', {type: 'string', role: 'annotation'}, 'CompanyB'],
+          ['2015',  65,   65,                                 37],
+          ['2016',  55,   55,                                 52],
+          ['2017',  70,    70,                                 73],
+          ['2018',  73,   73,                                 84]
         ]);
         data = new google.visualization.DataView(data);
         // add a new column right (column for annotation) to the fourth column (using the source of column 3)
         data.setColumns([0, 1, 2, 3, {type: 'string', role: 'annotation', sourceColumn: 3, calc: 'stringify'}])
         var options = {
-          title: 'the population of the elderly and those who live alone',
+          title: 'the comparison about sales revenue of the two companies',
           titleTextStyle: {
             color: 'black',
             fontSize: 30,
@@ -31,7 +31,7 @@
             },
           },
           vAxis: {
-            title: 'Population (10 thousand)',
+            title: 'sales revenue (10 milion)',
             titleTextStyle: {
               fontSize: 20,
               fontName: 'Times New Roman',
@@ -70,13 +70,11 @@
   </head>
   <body>
     <div id="introduction" style="max-width: 800px; font-family: Verdana, Dotum; margin: auto; padding-bottom: 30px">
-      <h1>The population of elder over 65 </h1>
+      <h1>The comparison about sales revenue of the two companies </h1>
       <p>date: 2019-10-05</p>
       <p>name: HaEunMok (21700238)</p>
-      <p>Introduction: This chart shows 
-      	1)the population of elder who is over 65 
-      	2)and the population of elder over 65 who live alone.</p>
-      <p>Data: The data is from Nation indicator system (K indicator) http://www.index.go.kr/unify/idx-info.do?idxCd=4233 </p>
+      <p>Introduction: This chart shows the sales revenue of the two companies</p>
+      <p>Data: The data is what I made. </p>
       <p>https://github.com/HaEunMok/Data-Visualization.io/blob/master/homework2<p>
     </div>
     <div id="chart_div" style="max-width: 1200px; margin: auto; width: 1200px; height: 500px; padding-top: 50px"></div>
