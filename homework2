@@ -8,18 +8,18 @@
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Laptop', {type: 'string', role: 'annotation'}, 'tablet PC'],
           ['2015',  65,   65,                                 37],
-          ['2016',  55,   55,                                 52],
-          ['2017',  70,    70,                                 73],
-          ['2018',  73,   73,                                 84]
+          ['2016',  45,   45,                                 60],
+          ['2017',  55,    55,                                 70],
+          ['2018',  73,   73,                                 90]
         ]);
         data = new google.visualization.DataView(data);
         // add a new column right (column for annotation) to the fourth column (using the source of column 3)
-        data.setColumns([0, 1, 2, 3, {type: 'string', role: 'annotation', sourceColumn: 3, calc: 'stringify'}])
+        data.setColumns([0, 1, 2, 3, {type: 'string', role: 'annotation',sourceColumn: 3, calc: 'stringify'}])
         var options = {
           title: 'The comparison about how much notebooks and PCs are sold',
           titleTextStyle: {
             color: 'black',
-            fontSize: 30,
+            fontSize: 25,//change size from 30 to 25
             fontName: 'Times New Roman'
           },
           hAxis: {
@@ -39,29 +39,36 @@
             },
           },
           animation: {
-            duration: 1000, // 1000 ms = 1 s
+            duration: 2000, // change speed to 2000 ms = 2 s
             startup: true,
             easing: 'out'
           },
           annotations: {
+          	textStyle: {//add option to change text style
+		      fontName: 'Times-Roman',
+		      fontSize: 18,
+		      bold: true,
+		      italic: false,
+		      opacity: 1
+		    },
             boxStyle: {
-              // Color of the box outline.
-              stroke: '#888',
-              // Thickness of the box outline.
-              strokeWidth: 1,
-              // x-radius of the corner curvature.
-              rx: 10,
-              // y-radius of the corner curvature.
-              ry: 10
+              // Change color of the box outline to #777.
+              stroke: '#777',
+              // Change thickness of the box outline from 1 to 0.7.
+              strokeWidth: 0.7,
+              // change x-radius of the corner curvature. to 7
+              rx: 7,
+              // change y-radius of the corner curvature to 7.
+              ry: 7
             }
           },
           legend: {
-            position: 'bottom',
+            position: 'rigth',//change position.
             textStyle: {
               fontSize: 20
             }
           },
-          colors: ['blue', 'red']
+          colors: ['5B9BD5','ED7D31']//change color
         };
         var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
         chart.draw(data, options);
