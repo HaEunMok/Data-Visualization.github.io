@@ -23,7 +23,7 @@ pohang$피해운전자.연령<-substr(pohang$피해운전자.연, 1, 2)
 pohang_elders<-subset(pohang,피해운전자.연령>=65)
 elders<-subset(data,피해운전자.연령>=65)
 write.csv(elders,"elders.csv")
-########################################################33
+################ 지역별 교통사고 사망자 인구분포 ########################################33
 
 elders<-read.csv("elders.csv")
 pohang_elders<-subset(pohang,피해운전자.연령>=65)
@@ -43,7 +43,7 @@ ggplot(count, aes(x = reorder(지역, -n), y =n ,fill=n)) + geom_bar(stat = "ide
 ggplot(count_final, aes(x = 지역, y =n ,fill=n)) + geom_bar(stat = "identity")+  labs(y="수(명)", x="지역")+coord_flip()
 ggplot(p, aes(x = 지역, y =n ,fill=n)) + geom_bar(stat = "identity")+  labs(y="수(명)", x="지역")+coord_flip()
 write.csv(count,"count.csv")
-#################################3
+############## 지역별 교통사고 사망자 비율 ##################3
 count<-read.csv("count.csv")
 names(elder)<-c("지역","노인비율")
 elder<-elder[-1,]
